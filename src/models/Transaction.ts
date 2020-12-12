@@ -14,20 +14,20 @@ class Transaction {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column()
+  @Column('text')
   title: string;
 
-  @Column()
+  @Column('text')
   type: 'income' | 'outcome';
 
-  @Column('decimal')
+  @Column('int')
   value: number;
 
   @ManyToOne(() => Category)
   @JoinColumn({ name: 'category_id' })
   category: Category;
 
-  @Column()
+  @Column('text')
   category_id: string;
 
   @CreateDateColumn()
