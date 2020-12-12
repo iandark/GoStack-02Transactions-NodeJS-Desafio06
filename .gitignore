@@ -3,6 +3,10 @@
 node_modules/
 build/
 temp/
-
 tmp/*
 !tmp/.gitkeep
+node_modules
+build
+npm-debug.log
+.env
+.DS_Store
