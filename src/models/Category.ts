@@ -11,7 +11,7 @@ class Category {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column('shorttext')
+  @Column('text')
   title: string;
 
   @CreateDateColumn()

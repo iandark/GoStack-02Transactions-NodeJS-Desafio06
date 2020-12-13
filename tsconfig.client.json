@@ -13,5 +13,5 @@
     "forceConsistentCasingInFileNames": true,
     "sourceMap": true
   },
-  "exclude": ["jest.config.js", "prettier.config.js", "./node_modules"]
+  "exclude": ["jest.config.js", "prettier.config.js", "./node_modules", "ormconfig.js"]
 }
