@@ -1,17 +1,17 @@
-module.exports = {
-  "type": "postgres",
-  "url": process.env.DATABASE_URL,
-  "entities": [
-    process.env.TS_NODE_DEV === "true"
-          ? "./src/models/*.ts"
-          : process.env.TYPEORM_ENTITIES
-    ],
-  "migrations": [
-    process.env.TS_NODE_DEV === "true"
-          ? "./src/database/migrations/*.ts"
-          : process.env.TYPEORM_MIGRATIONS],
-  "cli": {
-    "migrationsDir": "./src/database/migrations",
-    "entitiesDir": "./src/models"
-  }
-};
+const { merge } = require('webpack-merge');
+const commonConfig = require('./orm.config.common');
+
+if(process.env.AMBIENTE === "PRODUCTION") {
+  module.exports = merge(commonConfig, {
+    "url": process.env.DATABASE_URL,
+  });
+} else {
+  module.exports = merge(commonConfig, {
+    "type": "postgres",
+    "host": "192.168.1.120",
+    "username": "postgres",
+    "password": "docker",
+    "port": "5432",
+    "database": "gostack_desafio06",
+  });
+}
